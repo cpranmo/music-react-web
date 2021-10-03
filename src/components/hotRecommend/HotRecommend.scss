@@ -1,0 +1,58 @@
+.HotRecommend{
+    // 头部样式再插槽中
+    // 列表区样式
+    .index-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 20px 0;
+        li {
+            width: 140px;
+            height: 204px;
+            .title{
+                margin-top: 5px;
+                margin: 8px 0 3px;
+                font-size: 14px;
+            }
+            .pic{
+                width: 140px;
+                height: 140px;
+                overflow: hidden;
+                position: relative;
+                cursor: pointer;
+    
+                .bottom{
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    height: 27px;
+                    background: rgba(0,0,0,0.5);
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    .headset{
+                        display: inline-block;
+                        width: 14px;
+                        height: 11px;
+                        background: url("/static/iconall.png") no-repeat 0 -24px;
+                        margin: 0 5px 0 10px;
+                    }
+                    .num{
+                        color: #ccc;
+                    }
+                    .player{
+                        width: 16px;
+                        height: 17px;
+                        background: url("/static/iconall.png") no-repeat 0 0;
+                        margin-right: 10px;
+                        &:hover{
+                            background-position: 0 -60px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

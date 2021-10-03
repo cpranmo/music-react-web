@@ -1,0 +1,37 @@
+.DiscoverNav{
+    height: 35px;
+    background-color: #C20C0C;
+    border-bottom: 1px solid #a40011;
+    box-sizing: border-box;
+    .nav{
+        width:1100px;
+        margin: auto;
+        // 列表区
+        ul {
+            display: flex;
+            height: 34px;
+            padding-left: 180px;
+            li{
+                height: 34px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                a {
+                    display: inline-block;
+                    color: #fff;
+                    text-decoration: none;
+                    padding: 3px 13px;
+                    margin: 0 17px 0;
+                    border-radius: 20px;
+                }
+                a:hover{
+                    background: #9B0909;
+                }
+                // 选中时样式
+                a.active{
+                    background: #9B0909;
+                }
+            }
+        }
+    }
+}

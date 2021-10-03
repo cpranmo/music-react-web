@@ -1,0 +1,72 @@
+.swiper-container{
+    /* 两种都可以 */
+    --swiper-theme-color: #ff6600;
+    --swiper-pagination-color: #00ff33; 
+}
+// 轮播容器 
+.BannerWrapper{
+    height: 285px;
+    .container{
+        width: 980px;
+        height: 100%;
+        margin: auto;
+        display: flex;
+    }
+    .banner{
+        width: 730px;
+        height: 100%;
+        overflow: hidden;
+        .move-wrapper{
+            height: 100%;
+        }
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .download-wrapper{
+        position: relative;
+        width: 250px;
+        height: 100%;
+        background:#333 url("/static/download.png") no-repeat 0 0/cover;
+        opacity: 0.9;
+        .btn{
+            display: block;
+            width: 212px;
+            height: 56px;
+            margin: 182px 0 0 19px;
+            background-position: 0 9999px;
+            text-indent: -9999px;
+        }
+        p{
+            margin: 15px auto 10px;
+            text-align: center;
+            color: #8d8d8d;
+        }
+        &:hover {
+            opacity: 1;
+        }
+        .shadow{
+            display: block;
+            position: absolute;
+            top: 0;
+            left: -20px;
+            width: 20px;
+            height: 285px;
+            background-position: -1px 0;
+            background: url("../../static/banner.png") 0 9999px no-repeat;
+        }
+        .shadowr {
+            display: block;
+            position: absolute;
+            top: 0;
+            height: 285px;
+            width: 20px;
+            left: auto;
+            right: -20px;
+            background-position: -20px 0;
+            background: url("../../static/banner.png") 0 9999px no-repeat;
+        }
+    }
+}

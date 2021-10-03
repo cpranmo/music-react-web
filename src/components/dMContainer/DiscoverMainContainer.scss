@@ -1,0 +1,19 @@
+.DiscoverMainContainer{
+    display: flex;
+    width: 980px;
+    margin: auto;
+    // 侧边栏
+    .side-module{
+      width: 250px;
+      background: #fff;
+      // border-left: 1px solid #ddd;
+    }
+    // 主体区
+    .main-module{
+      flex: 1;
+      padding: 20px;
+      background: #fff;
+      border-right: 1px solid #ddd;
+    }
+  
+  }

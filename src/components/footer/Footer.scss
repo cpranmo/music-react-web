@@ -1,0 +1,24 @@
+footer{
+    padding: 2px 0;
+    color: #999;
+    background: #f2f2f2;
+    .Footer{
+        width: 100%;
+        overflow: hidden;
+        border-top: 1px solid #d3d3d3;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #999;
+        a{
+            margin: 0 2px 0 4px;
+        }
+    }
+    
+    .author{
+        text-align: center;
+        height: 25px;
+        line-height: 25px;
+    }   
+}

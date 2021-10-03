@@ -1,0 +1,83 @@
+.NewAlbumShelf {
+  height: 240px;
+  margin-bottom: 20px;
+}
+
+.NewAlbumShelf .albumWrap {
+  background: #F5F5F5;
+  margin: 20px auto;
+  padding: 28px 0 10px 15px;
+  border: 1px solid #d3d3d3;
+}
+
+.NewAlbumShelf .albumWrap .list {
+  float: left;
+  width: 118px;
+  height: 150px;
+  overflow: hidden;
+  line-height: 1.4;
+  margin-left: 11px;
+  background: url("/static/index.png") no-repeat -260px 100px;
+}
+
+.NewAlbumShelf .albumWrap .list:hover .icon {
+  display: block !important;
+}
+
+.NewAlbumShelf .albumWrap .list .pic {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  cursor: pointer;
+}
+
+.NewAlbumShelf .albumWrap .list .pic p {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/static/coverall.png") no-repeat;
+}
+
+.NewAlbumShelf .albumWrap .list .pic .bgImg {
+  background-position: 0 -680px;
+}
+
+.NewAlbumShelf .albumWrap .list .pic .msk {
+  width: 118px;
+  height: 100px;
+  background-position: 0 -570px;
+}
+
+.NewAlbumShelf .albumWrap .list .pic .icon {
+  display: none;
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  width: 22px;
+  height: 22px;
+  background: url("/static/iconall.png") no-repeat 0 -85px;
+}
+
+.NewAlbumShelf .albumWrap .list .title {
+  margin: 8px 0 3px;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.NewAlbumShelf .albumWrap .list .title a {
+  color: #000;
+}
+
+.NewAlbumShelf .albumWrap .list .name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.NewAlbumShelf .albumWrap .list .name a {
+  color: #666;
+}

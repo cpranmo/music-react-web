@@ -1,0 +1,123 @@
+.GlobalHeader{
+    position: relative;
+    z-index: 1000;
+    height: 70px;
+    box-sizing: border-box;
+    background: #242424;
+    border-bottom: 1px solid #000;
+    // 顶部内容区
+    .container{
+        width: 1100px;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+    
+        // 头导航左边  
+        .top-left{
+            // logo 图标
+            .logo{
+                float: left;
+                width: 176px;
+                height: 100%;
+                background: url('/static/topbar.png') no-repeat 0 0;
+            }
+            // 导航列表
+            .nav{
+                float: left;
+                li{
+                    float: left;
+                    height: 70px;
+                    font-size: 14px;
+                    position: relative;
+                    a{
+                        display: block;
+                        padding: 0 19px;
+                        text-align: center;
+                        line-height: 70px;
+                        color: #ccc;
+                        text-decoration: none;
+                        .arrow{
+                            display: none;
+                            position: absolute;
+                            left: 50%;
+                            top: 64px;
+                            width: 12px;
+                            height: 7px;
+                            margin-left: -6px;
+                            overflow: hidden;
+                            background: url('/static/topbar.png') no-repeat -226px 0;
+                        }
+                        &:hover{
+                            background: #000;
+                            color: #fff;
+                        }
+                    }
+                    a.active{
+                        background: #000;
+                        color: #fff;
+                        text-decoration: none;
+                        .arrow {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+  
+        // 右侧搜索区
+        .search-and-login-container{
+            display: flex;
+            align-items:center;
+            .search-wraper{
+                width: 158px;
+                height: 32px;
+                background:#fff url("/static/topbar.png") no-repeat 0 -99px;
+                border-radius: 32px;
+                display: flex;
+                align-items: center;
+                overflow: hidden;
+                input {
+                    width: 95%;
+                    margin: 0;
+                    padding: 0;
+                    background: transparent;
+                    color: #333;
+                    border: none;
+                    margin-left: 30px;
+                }
+            }
+            .m-top{
+                width: 90px;
+                height: 32px;
+                box-sizing: border-box;
+                padding-left: 16px;
+                border: 1px solid #4F4F4F;
+                background-position: 0 -140px;
+                line-height: 33px;
+                color: #ccc;
+                border-radius: 20px;
+                text-decoration: none;
+                margin-right: 20px;
+                margin-left: 12px;
+                &:hover{
+                    color: #fff;
+                    text-decoration: none;
+                    border: 1px solid #ccc;
+                }
+            }
+            // 登录按钮
+            .loginBtn{
+                display: block;
+                width: 28px;
+                color: #aaa;
+                color: #787878;
+                cursor: pointer;
+                padding-right: 22px;
+                &:hover{
+                    color: #bbb;
+                }
+            }
+        }
+    }
+  }

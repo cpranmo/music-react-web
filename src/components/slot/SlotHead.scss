@@ -1,0 +1,48 @@
+.cate-nav {
+    padding: 0 10px 0 34px;
+    background: url('/static/index.png') no-repeat -225px -156px;
+    border-bottom: 2px solid #C10D0C;
+    display: flex;
+    height: 33px;
+    justify-content: space-between;
+    align-items: center;
+    // 左侧
+    .left-cate{
+        display: inherit;
+        align-items: center;
+        // 分类名
+        .title {
+            font-size: 20px;
+            font-weight: normal;
+            line-height: 28px;
+            text-decoration: none;
+        }
+        // 列表
+        .tab{
+            margin: 0 0 0 20px;
+            a{
+                color: #666;
+                font-size: 12px;
+                font-weight: normal;
+            }
+            .line{
+                margin: 0 10px;
+                color: #ccc;
+            }
+        }
+    }
+    // 更多
+    .more {
+        a{
+            color: #666;
+        }
+        i{
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin-left: 4px;
+            vertical-align: middle;
+            background: url("/static/index.png") no-repeat 0 -240px;
+        }
+    }
+}
