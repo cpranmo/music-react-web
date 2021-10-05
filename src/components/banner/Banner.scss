@@ -12,8 +12,18 @@
         margin: auto;
         display: flex;
     }
+    .ant-carousel{
+        height: 100%;
+        .slick-slider{
+            height: 100%;
+            div{
+                height: 100%;
+            }
+        }
+    }
     .banner{
         width: 730px;
+        height: 100%;
         height: 100%;
         overflow: hidden;
         .move-wrapper{
@@ -25,6 +35,7 @@
             height: 100%;
         }
     }
+    // 下载区
     .download-wrapper{
         position: relative;
         width: 250px;

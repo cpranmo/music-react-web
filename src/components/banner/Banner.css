@@ -16,8 +16,21 @@
   display: flex;
 }
 
+.BannerWrapper .ant-carousel {
+  height: 100%;
+}
+
+.BannerWrapper .ant-carousel .slick-slider {
+  height: 100%;
+}
+
+.BannerWrapper .ant-carousel .slick-slider div {
+  height: 100%;
+}
+
 .BannerWrapper .banner {
   width: 730px;
+  height: 100%;
   height: 100%;
   overflow: hidden;
 }

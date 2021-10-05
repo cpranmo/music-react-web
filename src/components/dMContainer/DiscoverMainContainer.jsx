@@ -4,7 +4,7 @@ import HotRecommend from '../hotRecommend/HotRecommend'
 import NewAlbumShelf from '../newAlbumShelf/NewAlbumShelf'
 import EnterSinger from '../enterSinger/EnterSinger'
 import SideLogin from '../sideLogin/SideLogin'
-import SideUserInfo from '../sideUser/SideUserInfo'
+// import SideUserInfo from '../sideUser/SideUserInfo'
 import HotAnchor from '../hotAnchor/HotAnchor'
 import "./DiscoverMainContainer.scss"
 
