@@ -35,9 +35,15 @@
             display: block;
             width: 212px;
             height: 56px;
+            line-height: 56px;
             margin: 182px 0 0 19px;
             background-position: 0 9999px;
-            text-indent: -9999px;
+            text-align: center;
+            background-color: rgb(55, 150, 238);
+            text-decoration: none;
+            font-size: 20px;
+            letter-spacing: 1px;
+            color: white;
         }
         p{
             margin: 15px auto 10px;

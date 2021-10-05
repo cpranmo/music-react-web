@@ -19,23 +19,28 @@ export default function NewAlbumShelf() {
             </SlotHead>
             {/* 轮播区  */}
             <div className="albumWrap">
-                <div className='list'>
-                    <div className="pic">
-                        <img src="" alt=""/>
-                        <p className="bgImg"> </p>
-                        <p className="msk"> </p>
-                        <i className="icon"> </i>
-                    </div>
-
-                    <p className="title">
-                        <a href="##">item.name</a>
-                    </p>
-                    <p className="name">
-                        <a href="##">
-                            artist.name <span > / </span>
-                        </a>
-                    </p>
-                </div>
+                <ul>
+                    {
+                        new Array(5).fill(0).map((item,index)=>{
+                            return (
+                                <li className="list" key={index}>
+                                    <div className="pic">
+                                        <img src="http://p3.music.126.net/hVVNPCyCxQV3U9HH8Y8fxA==/109951166363914914.jpg?param=100y100" alt="图"/>
+                                        <p className="bgImg"> </p>
+                                        <p className="msk"> </p>
+                                        <i className="icon"> </i>
+                                    </div>
+                                    <p className="title">
+                                        <a href="##">幸存者的救赎</a>
+                                    </p>
+                                    <p className="name">
+                                        <a href="##">张杰</a> / <a href="##">张杰</a>
+                                    </p>
+                                </li>
+                            )
+                        })
+                    }
+                </ul>
             </div>
         </div>
     )

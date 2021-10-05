@@ -146,3 +146,13 @@ button {
 .music-content {
     min-height: calc(100vh - 70px - 60px);
 }
+
+html::-webkit-scrollbar {
+    width: 0 !important;
+}
+html {
+    -ms-overflow-style: none;
+}
+html {
+    overflow: -moz-scrollbars-none;
+}

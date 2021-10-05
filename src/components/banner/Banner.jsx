@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import "./Banner.scss"
 // 轮播组件
 export default function Banner() {
@@ -18,7 +18,7 @@ export default function Banner() {
                 </a>
             </div>
             <div className="download-wrapper">
-                <NavLink to="/download" className="btn"></NavLink>
+                <Link to="/download" className="btn">跳转移动端</Link>
                 <p>pc端--安卓--鸿蒙</p>
                 <span className="shadow"></span>
                 <span className="shadowr"></span>

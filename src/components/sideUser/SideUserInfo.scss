@@ -1,0 +1,102 @@
+.SideUserInfo{
+    width: 250px;
+    height: 185px;
+    margin: 0 auto ;
+    box-sizing: border-box;
+    padding-top: 10px;
+    background: url("/static/index.png") no-repeat 0 -270px;
+    .user-wrap{
+        height: 90px;
+        display: flex;
+        .avatar{
+            width: 80px;
+            height: 80px;
+            margin-left: 20px;
+            padding: 2px;
+            background: #fff;
+            border: 1px solid #dadada;
+            box-sizing: unset;
+            img{
+                width: 80px;
+                height: 80px;
+                display: block;
+            }
+        }
+        .info{
+            width: 115px;
+            margin-left: 18px;
+            padding-top: 3px;
+            flex: 1;
+            .level{
+                margin-top: 5px;
+                display: flex;
+                a{
+                    height: 17px;
+                    overflow: hidden;
+                    padding-left: 25px;
+                    line-height: 18px;
+                    color: #999;
+                    font-weight: bold;
+                    font-style: italic;
+                    background: url("/static/icon2.png") no-repeat -130px -64px;
+                    vertical-align: middle;
+                    i{
+                        float: right;
+                        overflow: hidden;
+                        vertical-align: middle;
+                        width: 8px;
+                        height: 17px;
+                        background: url("/static/icon2.png") no-repeat -192px -64px;
+                    }
+                }
+            }
+            .sign{
+                margin-top: 15px;
+                a{
+                    display: inline-block;
+                    height: 31px;
+                    line-height: 31px;
+                    overflow: hidden;
+                    text-align: center;
+                    padding: 0 15px;
+                    background: #eee;
+                    color: #bebebe;
+                    text-decoration: none;
+                    border-radius: 5px;
+                }
+                &.signUp{
+                    a{
+                        color: #fff;
+                        background: #3483CF;
+                    }
+                }
+            }
+        }
+    }
+  
+    .charm{
+        margin: 22px auto 0;
+        display: flex;
+        overflow: hidden;
+        white-space: nowrap;
+        align-items: center;
+        text-overflow: ellipsis;
+        li{
+            flex: 1;
+            height: 60px;
+            padding: 0 18px;
+            border-right: 1px solid #e4e4e4;
+            display: inherit;
+            flex-direction: column;
+            color: #666;
+            align-items: center;
+            b{
+                font-size: 20px;
+                margin-top: 5px;
+            }
+            span{
+                margin-top: 3px
+            };
+        }
+    }
+}
