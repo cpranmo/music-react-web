@@ -1,72 +1,86 @@
-.TopListPage{
+.TopListPage {
     display: flex;
     width: 980px;
     min-height: 700px;
     margin: 0 auto;
     border: 1px solid #d3d3d3;
     border-width: 0 1px;
-    background:#fff url("/static/wrap3.png") repeat-y center 0;
+    background: #fff url("/static/wrap3.png") repeat-y center 0;
+
     // 歌单列表
-    .rank-list{
+    .rank-list {
         width: 240px;
         margin-top: 40px;
-        h2{
+
+        h2 {
             padding: 0 10px 12px 15px;
             font-size: 14px;
             color: #000;
-            &.scd{
+
+            &.scd {
                 margin-top: 20px;
             }
         }
-        ul.characteristic{
-            li{
+
+        ul.characteristic {
+            li {
                 padding: 10px 0 10px 20px;
                 height: 42px;
                 cursor: pointer;
                 display: flex;
                 align-items: center;
-                &:hover{
+
+                &:hover {
                     background-color: #f4f2f2;
                 }
-                &.active{
+
+                &.active {
                     background: #e6e6e6;
                 }
-                .pic{
+
+                .pic {
                     width: 40px;
                     height: 40px;
                 }
-                .info{
+
+                .info {
                     flex: 1;
                     padding-left: 10px;
-                    .title{
+
+                    .title {
                         color: #000;
                         margin-bottom: 8px;
                         width: 150px;
                         overflow: hidden;
                         margin-top: 2px;
                     }
-                    .update-time{
+
+                    .update-time {
                         color: #999;
                     }
                 }
             }
         }
     }
+
     // 右侧详情
-    .rank-list-details{
+    .rank-list-details {
         flex: 1;
         padding-bottom: 50px;
+
         // 头部信息
-        .rank-list-head-wrap{
+        .rank-list-head-wrap {
             display: flex;
             padding: 40px;
-            .pic{
+
+            .pic {
                 position: relative;
                 padding: 3px;
                 border: 1px solid #ccc;
                 width: 150px;
                 height: 150px;
-                .msk{
+
+                .msk {
                     position: absolute;
                     width: 150px;
                     height: 150px;
@@ -76,93 +90,113 @@
                     background: url("../../static/coverall.png");
                 }
             }
-            .song-des{
+
+            .song-des {
                 width: 473px;
                 margin-left: 28px;
-                .title{
+
+                .title {
                     line-height: 24px;
                     font-size: 20px;
                     font-weight: normal;
                     margin: 16px 0 4px;
                 }
-                .update-date{
+
+                .update-date {
                     height: 35px;
                     line-height: 35px;
                     margin: 0 0 20px;
                     display: flex;
-                    .icon{
+
+                    .icon {
                         width: 13px;
                         height: 13px;
                         margin: 9px 0 0 3px;
                         background: url("/static/icon.png") no-repeat -18px -682px;
                     }
-                    .date{
+
+                    .date {
                         margin-left: 5px;
                         color: #666;
                     }
-                    .exact{
+
+                    .exact {
                         color: #999;
                     }
                 }
-                .btns{
+
+                .btns {
                     margin-bottom: 25px;
                     margin-right: -10px;
                     display: flex;
-                    .playBtn{
+
+                    .playBtn {
                         display: flex;
                         align-items: center;
                         color: #fff;
                         width: 66px;
                         height: 31px;
                         background: url("/static/button2.png") repeat 0 -387px;
-                        &:hover{
+
+                        &:hover {
                             opacity: 0.8;
                             text-decoration: none;
                         }
+
                         i {
                             display: block;
                             width: 20px;
                             height: 18px;
                             margin: 0 3px 0 8px;
-                            background: url("/static/button2.png") no-repeat  0 -1622px;
+                            background: url("/static/button2.png") no-repeat 0 -1622px;
                             overflow: hidden;
                         }
-                        span{
+
+                        span {
                             flex: 1;
                         }
                     }
-                    .add{
+
+                    .add {
                         width: 31px;
                         height: 31px;
                         cursor: pointer;
                         background: url("/static/button2.png") no-repeat 0 -1588px;
                         margin-right: 10px;
                     }
-                    .collect-num{
+
+                    .collect-num {
                         text-decoration: none;
-                        background: url("/static/button2.png") repeat right -1020px,url("/static/button2.png") no-repeat 0 -977px;
-                        &:hover{
+                        background: url("/static/button2.png") repeat right -1020px, url("/static/button2.png") no-repeat 0 -977px;
+
+                        &:hover {
                             text-decoration: none;
                         }
                     }
-                    .forward-num{
+
+                    .forward-num {
                         text-decoration: none;
-                        background: url("/static/button2.png") repeat right -1020px,url("/static/button2.png") no-repeat 0 -1225px;
-                        &:hover{
+                        background: url("/static/button2.png") repeat right -1020px, url("/static/button2.png") no-repeat 0 -1225px;
+
+                        &:hover {
                             text-decoration: none;
                         }
                     }
-                    .download-song{
+
+                    .download-song {
                         text-decoration: none;
-                        background: url("/static/button2.png") repeat right -1020px,url("/static/button2.png") no-repeat 0 -2761px;
-                        &:hover{
+                        background: url("/static/button2.png") repeat right -1020px, url("/static/button2.png") no-repeat 0 -2761px;
+
+                        &:hover {
                             text-decoration: none;
                         }
                     }
-                    .comment-num{
+
+                    .comment-num {
                         text-decoration: none;
-                        background: url("/static/button2.png") repeat right -1020px,url("/static/button2.png") no-repeat 0 -1465px;
-                        &:hover{
+                        background: url("/static/button2.png") repeat right -1020px, url("/static/button2.png") no-repeat 0 -1465px;
+
+                        &:hover {
                             text-decoration: none;
                         }
                     }
@@ -170,44 +204,52 @@
             }
         }
 
-  
+
         // 歌曲列表
-        .song-list-wrap{
+        .song-list-wrap {
             padding: 0 30px 40px 40px;
+
             // 头部
-            .song-list-head{
+            .song-list-head {
                 height: 33px;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 border-bottom: 2px solid #c20c0c;
-                .hd{
+
+                .hd {
                     display: inherit;
                     justify-content: inherit;
                     align-items: inherit;
                 }
-                .title{
+
+                .title {
                     font-size: 20px;
                     line-height: 28px;
                     font-weight: normal;
                 }
-                .count{
+
+                .count {
                     margin: 0 0 0 20px;
                     color: #666;
                 }
-                .play-num{
+
+                .play-num {
                     color: #666;
-                    .num{
+
+                    .num {
                         color: #c20c0c;
                     }
                 }
             }
+
             // 歌曲列表
-            .song-list-pre-cache{
+            .song-list-pre-cache {
                 .has-gutter th {
                     padding: 7px 0;
                     background: url("/static/table.png") repeat 0 0;
-                    div{
+
+                    div {
                         background: url("/static/table.png") no-repeat 0 -56px;
                     }
                 }
@@ -215,18 +257,19 @@
         }
     }
 }
-  
-.btn-size{
+
+.btn-size {
     color: #333;
     height: 31px;
     line-height: 31px;
-    margin:0 6px;
+    margin: 0 6px;
     max-width: 85px;
     min-width: 23px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    i{
+
+    i {
         min-width: 23px;
         cursor: pointer;
         padding: 0 7px 0 28px;

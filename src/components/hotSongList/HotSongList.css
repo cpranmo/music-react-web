@@ -22,7 +22,6 @@
 }
 
 .EnterSinger-body ul li {
-  display: flex;
   margin-top: 14px;
   width: 210px;
   height: 62px;
@@ -30,8 +29,14 @@
   cursor: pointer;
 }
 
+.EnterSinger-body ul li a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
 .EnterSinger-body ul li .left-img {
-  width: 62px;
+  min-width: 62px;
   height: 62px;
 }
 
@@ -46,6 +51,7 @@
   padding-left: 14px;
   border: 1px solid #e9e9e9;
   border-left: none;
+  flex: 1;
 }
 
 .EnterSinger-body ul li .right-content .name {
@@ -61,7 +67,7 @@
   word-wrap: normal;
 }
 
-.EnterSinger-body a {
+.EnterSinger-body a.recruit {
   display: inline-block;
   margin-left: 20px;
   border-radius: 4px;
@@ -79,7 +85,7 @@
   background-color: #f8f7f7;
 }
 
-.EnterSinger-body a:hover {
+.EnterSinger-body a.recruit:hover {
   text-decoration: none;
   background-color: #fff;
 }

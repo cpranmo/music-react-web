@@ -1,7 +1,47 @@
-import React from 'react'
+import React, { memo, useEffect, useState } from 'react'
+import http from '../../utils/http';
 import "./RankList.scss"
 // 排行榜组件
-export default function RankList() {
+
+function RankList() {
+    // 排行榜数据
+    const [rankList,setRankList] = useState([]);
+    // 请求排行榜数据
+    useEffect(()=>{
+        http("get","/toplist/detail")
+            .then(res=>{
+                // console.log(res);
+                setRankList(res["list"]);
+            })
+            .catch(err=>{
+                console.log("RankList组件出错");
+                console.log(err);
+            })
+    },[])
+    
+    /**
+     * 
+     * @param {*} count 
+     * @returns 
+     */
+    const createRankList = (min = 0, max = Infinity) =>{
+        return rankList.length ? rankList.map((item,index)=>{
+            return (index >= min && index < max) && (
+                <li key={ item["id"] } className={ index === 0 ? "active": ""}>
+                    <div className="pic">
+                        <img width="100%" height="100%" src={ item["coverImgUrl"] + "?param=40y40" } alt="封面图"/>
+                    </div>
+                    <div className="info">
+                        <p className="title">{ item["name"] }</p>
+                        <p className="update-time">{ item["updateFrequency"] }</p>
+                    </div>
+                </li>
+            )
+        }) : [];
+    }
+
+
+    // 渲染排行榜数据
     return (
         <div className='TopListPage'>
             {/*左边榜单*/}
@@ -10,38 +50,14 @@ export default function RankList() {
                 <h2>云音乐特色榜</h2>
                 <ul className="characteristic">
                     {
-                        Array(4).fill(0).map((item,index)=>{
-                            return (
-                                <li key={index} className={index === 0 ? "active": ""}>
-                                    <div className="pic">
-                                        <img width="100%" height="100%" src="http://p1.music.126.net/DrRIg6CrgDfVLEph9SNh7w==/18696095720518497.jpg?param=40y40" alt="图片"/>
-                                    </div>
-                                    <div className="info">
-                                        <p className="title">飙升榜</p>
-                                        <p className="update-time">刚刚更新</p>
-                                    </div>
-                                </li>
-                            )
-                        })
+                        createRankList(0,4)
                     }
                 </ul>
                 {/* 全球媒体榜 */}
                 <h2 className="scd">全球媒体榜</h2>
                 <ul className="characteristic">
                     {
-                        Array(15).fill(0).map((item,index)=>{
-                            return (
-                                <li key={index}>
-                                    <div className="pic">
-                                        <img width="100%" height="100%" src="http://p1.music.126.net/DrRIg6CrgDfVLEph9SNh7w==/18696095720518497.jpg?param=40y40" alt="图片"/>
-                                    </div>
-                                    <div className="info">
-                                        <p className="title" >飙升榜</p>
-                                        <p className="update-time" >更新88首</p>
-                                    </div>
-                                </li>
-                            )
-                        })
+                        createRankList(4)
                     }
                 </ul>
                 {/* 全球媒体榜 */}
@@ -95,3 +111,6 @@ export default function RankList() {
         </div>
     )
 }
+
+// 缓存组件数据
+export default memo(RankList)

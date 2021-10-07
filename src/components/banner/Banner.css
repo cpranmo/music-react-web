@@ -10,6 +10,7 @@
 }
 
 .BannerWrapper .container {
+  position: relative;
   width: 980px;
   height: 100%;
   margin: auto;
@@ -99,4 +100,24 @@
   right: -20px;
   background-position: -20px 0;
   background: url("../../static/banner.png") 0 9999px no-repeat;
+}
+
+.BannerWrapper .changeBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.BannerWrapper .changeBtn:hover {
+  background-color: rgba(240, 240, 240, 0.3);
+}
+
+.BannerWrapper .changeBtn.prevBtn {
+  left: -55px;
+}
+
+.BannerWrapper .changeBtn.nextBtn {
+  right: -55px;
 }

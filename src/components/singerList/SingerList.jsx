@@ -4,7 +4,7 @@ import "./SingerList.scss";
 
 // 二次歌手路由组件
 export default function SingerList() {
-
+    // 字母数据
     const [az,setAz] = useState([])
     // 获取 a-z 字母
     useEffect(()=>{
@@ -50,7 +50,7 @@ export default function SingerList() {
                                             {
                                                 Array(3).fill(0).map((item,index)=>{
                                                     return (
-                                                        <li>
+                                                        <li key={index}>
                                                             <NavLink to="/discover/artist/cat?id=1" className="name">华语男歌手</NavLink>
                                                         </li>
                                                     )

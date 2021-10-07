@@ -1,10 +1,51 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import SlotHead from '../slot/SlotHead'  // 插槽组件
+import { numberFormat } from "js-num-format"
+import http from "../../utils/http";
 import "./HotRecommend.scss"
 
 // 首页热门推荐组件
 export default function HotRecommend() {
+    // 热门数据
+    const [hotList, setHotList] = useState([]);
+    // 请求数据
+    useEffect(()=>{
+        http("get","/personalized",{ limit : 8 })
+            .then(res=>{
+                // console.log(res);
+                // 赋值
+                setHotList(res["result"]);
+            })
+    },[])
+    /**
+     * 创建热门推荐结构
+     * @returns  返回创建结构
+     */
+    const createHotRecommend = ()=>{
+        // 使用逻辑时当没有数据时会出现渲染前面 length 为 0 结果所以采用三目运算符
+        return hotList.length ? hotList.map((item,index)=>{
+            return (
+                <li key={ item["id"] }>
+                    <div className="pic">
+                        <img src={ item["picUrl"] + "?param=140y140" } width="100%" height="100%" alt="封面" />
+                        <Link to={ "/playlist?id="+ item["id"] } className="bgImg"></Link>
+                        <div className="bottom">
+                            <span>
+                                <i className="headset"> </i>
+                                <i className="num">{ numberFormat(item["playCount"]) }</i>
+                            </span>
+                            <i className="player"> </i>
+                        </div>
+                    </div>
+                    <p className="title">
+                        <Link to={ "/playlist?id="+ item["id"] }>{ item["name"] }</Link>
+                    </p>
+                </li>
+            )
+        }) : [];
+    }
+    // 渲染视图
     return (
         <div className='HotRecommend'>
             {/* 插槽 */}
@@ -28,29 +69,10 @@ export default function HotRecommend() {
                     <i className="cor">&nbsp;</i>
                 </div>
             </SlotHead>
-
             {/* 数据列表 */}
             <ul className="index-list">
                 {
-                    new Array(8).fill(0).map((item,index)=>{
-                        return (
-                            <li key={index}>
-                                <div className="pic">
-                                    <img src="http://p2.music.126.net/sXIej4jKk_767N89n7Fk7Q==/109951165255013850.jpg?param=140y140"
-                                         width="100%" height="100%" alt="" />
-                                    <p className="bgImg"> </p>
-                                    <div className="bottom">
-                            <span>
-                                <i className="headset"> </i>
-                                <i className="num">71万</i>
-                            </span>
-                                        <i className="player"> </i>
-                                    </div>
-                                </div>
-                                <p className="title"><a href="##">欧美｜那么孤单，不如一起跳舞吧。</a></p>
-                            </li>
-                        )
-                    })
+                    createHotRecommend()
                 }
             </ul>
         </div>

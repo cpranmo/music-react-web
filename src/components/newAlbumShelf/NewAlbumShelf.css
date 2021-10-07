@@ -1,0 +1,110 @@
+.NewAlbumShelf {
+  height: 240px;
+  margin-top: 35px;
+  margin-bottom: 37px;
+}
+
+.NewAlbumShelf .albumWrap {
+  margin-top: 20px;
+  background: #F5F5F5;
+  background: whitesmoke;
+  border: 1px solid #d3d3d3;
+  height: 188px;
+  width: 100%;
+}
+
+.NewAlbumShelf .albumWrap .newAlbum {
+  width: 688px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.NewAlbumShelf .albumWrap ul {
+  display: flex !important;
+  justify-content: center;
+}
+
+.NewAlbumShelf .albumWrap ul .list {
+  float: left;
+  width: 118px;
+  height: 150px;
+  margin: 28px 0px 0px;
+  overflow: hidden;
+  line-height: 1.4;
+  margin-left: 11px;
+  background: url("/static/index.png") no-repeat -260px 100px;
+}
+
+.NewAlbumShelf .albumWrap ul .list:first-child {
+  margin-left: 7px;
+}
+
+.NewAlbumShelf .albumWrap ul .list .pic {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  cursor: pointer;
+}
+
+.NewAlbumShelf .albumWrap ul .list .pic p {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/static/coverall.png") no-repeat;
+}
+
+.NewAlbumShelf .albumWrap ul .list .pic .bgImg {
+  background-position: 0 -680px;
+}
+
+.NewAlbumShelf .albumWrap ul .list .pic .msk {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/static/coverall.png") no-repeat;
+  width: 118px;
+  height: 100px;
+  background-position: 0 -570px;
+}
+
+.NewAlbumShelf .albumWrap ul .list .pic:hover .icon {
+  display: block !important;
+}
+
+.NewAlbumShelf .albumWrap ul .list .pic .icon {
+  display: none;
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  width: 22px;
+  height: 22px;
+  background: url("/static/iconall.png") no-repeat 0 -85px;
+}
+
+.NewAlbumShelf .albumWrap ul .list .title {
+  margin: 8px 0 3px;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.NewAlbumShelf .albumWrap ul .list .title a {
+  font-size: 13px;
+  color: #000;
+}
+
+.NewAlbumShelf .albumWrap ul .list .name {
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.NewAlbumShelf .albumWrap ul .list .name a {
+  color: #666;
+}

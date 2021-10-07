@@ -1,22 +1,27 @@
-.SongSheetPage{
+.SongSheetPage {
     width: 980px;
     min-height: 700px;
     margin: 0 auto;
     background-color: #fff;
     border: 1px solid #d3d3d3;
     border-width: 0 1px;
-    .SongSheetWrapper{
+    user-select: none;
+
+    .SongSheetWrapper {
         padding: 40px;
-        .cate-des{
+
+        .cate-des {
             height: 40px;
             border-bottom: 2px solid #c20c0c;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            h3{
+
+            h3 {
                 font-size: 24px;
                 font-weight: normal;
-                .arrow{
+
+                .arrow {
                     display: inline-block;
                     height: 31px;
                     line-height: 31px;
@@ -30,8 +35,9 @@
                     margin: 2px 0 0 12px;
                     color: #0c73c2 !important;
                     padding: 0 10px 0 15px;
+
                     // background-position: right -100px;
-                    em{
+                    em {
                         display: inline-block;
                         width: 8px;
                         height: 5px;
@@ -43,31 +49,41 @@
                     }
                 }
             }
-            a{
+
+            i.s-hot {
                 width: 46px;
                 height: 29px;
                 line-height: 29px;
                 text-align: center;
                 color: #fff;
                 border-radius: 3px;
-                background: linear-gradient(0,#A80909,#D20C0D);
+                cursor: pointer;
+                background: linear-gradient(0, #A80909, #D20C0D);
+
+                &:hover {
+                    text-decoration: underline;
+                }
             }
         }
+
         // 数据列表
         .index-list {
             display: flex;
             flex-wrap: wrap;
             // justify-content: space-between;
             margin: 30px 0;
+
             li {
                 width: 140px;
                 height: 188px;
                 padding: 0 50px 30px 0;
-                &:nth-child(5n){
+
+                &:nth-child(5n) {
                     padding-right: 0;
                 }
+
                 // 标题
-                .title{
+                .title {
                     font-size: 14px;
                     overflow: hidden;
                     margin: 8px 0 3px;
@@ -80,37 +96,46 @@
                     // -webkit-box-orient: vertical;//伸缩方向设为垂直方向
                     // -webkit-line-clamp: 2;//超出2行隐藏，并显示省略号
                 }
+
                 // 底部名称
-                .creator{
+                .creator {
                     font-size: 12px;
                     color: #666;
+
                     // margin-top: 5px;
-                    span{
+                    span {
                         color: #999;
                         vertical-align: middle;
                     }
-                    a{
-                        overflow: hidden;/*超出部分隐藏*/
-                        text-overflow:ellipsis;/* 超出部分显示省略号 */
-                        white-space: nowrap;/*规定段落中的文本不进行换行 */
+
+                    a {
+                        overflow: hidden;
+                        /*超出部分隐藏*/
+                        text-overflow: ellipsis;
+                        /* 超出部分显示省略号 */
+                        white-space: nowrap;
+                        /*规定段落中的文本不进行换行 */
                         max-width: 76%;
                         margin: 0 4px;
                         vertical-align: middle;
                     }
-                    img{
+
+                    img {
                         height: 13px;
                         width: 13px;
                         display: inline-block;
                         vertical-align: middle;
                     }
                 }
+
                 // 封面
-                .pic{
+                .pic {
                     width: 140px;
                     height: 140px;
                     overflow: hidden;
                     position: relative;
-                    .msk{
+
+                    .msk {
                         background: url("../../static/coverall.png") no-repeat;
                         background-position: 0 0;
                         position: absolute;
@@ -119,32 +144,37 @@
                         width: 100%;
                         height: 100%;
                     }
-                    .bottom{
+
+                    .bottom {
                         position: absolute;
                         bottom: 0;
                         left: 0;
                         right: 0;
                         height: 27px;
-                        background: rgba(0,0,0,0.5);
+                        background: rgba(0, 0, 0, 0.5);
                         display: flex;
                         justify-content: space-between;
                         align-items: center;
-                        .headset{
+
+                        .headset {
                             display: inline-block;
                             width: 14px;
                             height: 11px;
                             background: url("/static/iconall.png") no-repeat 0 -24px;
                             margin: 0 5px 0 10px;
                         }
-                        .num{
+
+                        .num {
                             color: #ccc;
                         }
-                        .player{
+
+                        .player {
                             width: 16px;
                             height: 17px;
                             background: url("/static/iconall.png") no-repeat 0 0;
                             margin-right: 10px;
-                            &:hover{
+
+                            &:hover {
                                 background-position: 0 -60px;
                                 cursor: pointer;
                             }
@@ -157,8 +187,16 @@
 }
 
 // 分页
-.song-sheet-pagination{
+.song-sheet-pagination {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    * {
+        box-sizing: border-box;
+    }
+}
+
+.lazyload-wrapper {
+    height: 100%;
 }

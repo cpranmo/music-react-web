@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { memo, useState } from 'react'
 import SlotHead from '../slot/SlotHead'
 import "./NewAlbum.scss"
 
 // 二次路由新碟上架组件
-export default function NewAlbum() {
+function NewAlbum() {
+    // 热门新碟
+    const [hotNewAlbumList,setHotNewAlbumList] = useState([]);
+    // 全部新碟
+    const [allNewAlbumList,setAllNewAlbumList] = useState({});
+
     return (
         <div className="AlbumPage">
             {/* 热门新碟 */}
@@ -86,3 +91,5 @@ export default function NewAlbum() {
         </div>
     )
 }
+
+export default memo(NewAlbum)

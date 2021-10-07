@@ -156,3 +156,7 @@ html {
 html {
     overflow: -moz-scrollbars-none;
 }
+
+* {
+    box-sizing: unset;
+}

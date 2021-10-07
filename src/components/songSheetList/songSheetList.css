@@ -6,6 +6,7 @@
   background-color: #fff;
   border: 1px solid #d3d3d3;
   border-width: 0 1px;
+  user-select: none;
 }
 
 .SongSheetPage .SongSheetWrapper {
@@ -52,14 +53,19 @@
   background-position: -70px -543px;
 }
 
-.SongSheetPage .SongSheetWrapper .cate-des a {
+.SongSheetPage .SongSheetWrapper .cate-des i.s-hot {
   width: 46px;
   height: 29px;
   line-height: 29px;
   text-align: center;
   color: #fff;
   border-radius: 3px;
+  cursor: pointer;
   background: linear-gradient(0, #A80909, #D20C0D);
+}
+
+.SongSheetPage .SongSheetWrapper .cate-des i.s-hot:hover {
+  text-decoration: underline;
 }
 
 .SongSheetPage .SongSheetWrapper .index-list {
@@ -175,4 +181,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.song-sheet-pagination * {
+  box-sizing: border-box;
+}
+
+.lazyload-wrapper {
+  height: 100%;
 }

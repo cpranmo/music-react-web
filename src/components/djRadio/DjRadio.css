@@ -16,7 +16,8 @@
 
 .DjRadioPage .dj-cate ul.cate-content {
   height: 100%;
-  display: flex;
+  display: flex !important;
+  height: 194px;
   flex-wrap: wrap;
 }
 

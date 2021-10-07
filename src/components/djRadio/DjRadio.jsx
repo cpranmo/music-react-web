@@ -1,10 +1,131 @@
-import React from 'react'
+import { Carousel } from 'antd';
+import React, { memo, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { groups } from '../../utils/format';
+import http from '../../utils/http';
 import SlotHead from '../slot/SlotHead'
+import 'antd/dist/antd.css'; // 按需导入
 import "./DjRadio.scss"
 
+
 // 二次路由主播电台路由
-export default function DjRadio() {
+function DjRadio() {
+    // 电台分类
+    const [cateList,setCateList] = useState([]);
+    // 推荐节目
+    const [recommendList, setRecommendList] = useState([]);
+    // 节目排行榜
+    const [rankList,setRankList] = useState([]);
+    // 请求电台分类
+    useEffect(()=>{
+        http("get","/dj/catelist")
+            .then(res=>{
+               let data = groups(res["categories"],18) ;
+            //    console.log(data);
+               setCateList(data);
+            })
+    },[])
+    // 请求推荐节目
+    useEffect(()=>{
+        http("get","/program/recommend")
+            .then(res=>{
+            //    console.log(res);
+               setRecommendList(res["programs"])
+            })
+    },[])
+    // 请求节目排行榜
+    useEffect(()=>{
+        http("get","/dj/program/toplist",{ limit: 10 })
+            .then(res=>{
+            //    console.log(res);
+               setRankList(res["toplist"])
+            })
+    },[])
+    /**
+     * 创建分类
+     * @returns 分类结构
+     */
+    const createCateList = () =>{
+        return (
+            cateList.length ? cateList.map((item,index)=>{
+                return index < 2 && (
+                    <ul className="cate-content" key={index}>
+                        {
+                            Array.isArray(item) && item.map((subitem,index)=>{
+                                return (
+                                    <li key={ subitem["id"] } className={ index === 0 ? "active" : "" }>
+                                        <Link to={ "/discover/djradio/category?id=" + subitem["id"] }>
+                                            <div className="webUrl" style={{backgroundImage: 'url(' + subitem["picWebUrl"] + ')'}}></div>
+                                            <em>{ subitem["name"] }</em>
+                                        </Link>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                )
+            }) : []
+        )
+    }
+    /**
+     * 
+     * @returns 推荐节目
+     */
+    const createRecommend = () =>{
+        return (
+            recommendList.length ? recommendList.map((item,index)=>{
+                return (
+                    <li key={ item["id"] }>
+                        <div className="pic" title="播放">
+                            <img width="100%" height="100%" src= { item["coverUrl"] + "?param=40x40" } alt="封面"/>
+                            <i className="icon"></i>
+                        </div>
+                        <div className="con">
+                            <Link to={ "/program?id=" +  item["id"] } className="title">{ item["name"]  }</Link>
+                            <Link to={ "/djradio?id=" + (item["radio"] && item["radio"]["id"]) }  className="des">{ item["radio"] && item["radio"]["name"] }</Link>
+                        </div>
+                        <Link to={ "djradio/category?id=" + item["categoryId"] } className="cate">{ item["radio"] && item["radio"]["category"] }</Link>
+                    </li>
+                );
+            }): []
+        )
+    }
+    /**
+     * 创建节目排行榜
+     * @returns 节目排行结构
+     */
+    const createRankList = () =>{
+        return (
+            rankList.length ? rankList.map((item,index)=>{
+                return (
+                    <li key={ index }>
+                        <div className="rank">
+                            <em className={index === 0 ? "red":""}>{index+1 < 10 ? "0"+ (index+1) : (index+1)}</em>
+                            {
+                                item["lastRank"] < 0  ?
+                                    <i className={"new"}></i>
+                                    :   <span className={
+                                            item["lastRank"] !== item["rank"] ?  item["lastRank"] > item["rank"]  ?  "up" : "down"  : ""
+                                        }>
+                                        <i></i>{ Math.abs( item["lastRank"] - item["rank"] ) }</span>
+                            }
+                        </div>
+                        <div className="pic">
+                            <img width="100%" height="100%" src={ item['program']['coverUrl'] + "?param=40x40" } alt="封面"/>
+                            <i className="icon"></i>
+                        </div>
+                        <div className="con">
+                            <Link to={ "/program?id=" + item["program"]["id"] } className="title">{ item['program']['name'] }</Link>
+                            <Link to={ "/djradio?id=" + item['program']['radio']['id'] } className="des">{ item['program']['radio']['name'] }</Link>
+                        </div>
+                        <span className="hot">
+                            <i style={{width: (item["score"] / 250000 ) * 100 +  "%"}}></i>
+                        </span>
+                    </li>
+                )
+            }) : []
+        ) 
+    }
 
     // 类名切换名称
     function changeTitle(index){
@@ -23,37 +144,18 @@ export default function DjRadio() {
                 return ""
         }
     }
+    
 
+    // 渲染视图
     return (
         <div className="DjRadioPage">
            {/* 电台分类 */}
             <div className="dj-cate">
-                <ul className="cate-content">
+                <Carousel effect="fade">
                     {
-                        Array(18).fill(0).map((item,index)=>{
-                            return (
-                                <li key={index} className={index === 0 ? "active" : ""}>
-                                    <Link to="/category?id=">
-                                        <div className="webUrl" style={{backgroundImage: 'url(https://p3.music.126.net/icULXvfqWJMFvcjTrXSLeA==/109951165406422565.jpg)'}}></div>
-                                        <em>情感</em>
-                                    </Link>
-                                </li>
-                            )
-                        })
+                        createCateList()
                     }
-                </ul>
-                <ul className="cate-content" style={{"display":"none"}}>
-                    {
-                        Array(2).fill(0).map((item,index)=>{
-                            return (
-                                <li key={index}>
-                                    <div className="webUrl" style={{backgroundImage: 'url(https://p1.music.126.net/7U7ktiXUIcKf3mtyCfrJ4g==/109951165620722077.jpg)'}}></div>
-                                    <em>name</em>
-                                </li>
-                            )
-                        })
-                    }
-                </ul>
+                </Carousel>
             </div>
             {/* 电台分类 */}
             {/* 推荐节目 - 节目排行榜 */}
@@ -70,21 +172,7 @@ export default function DjRadio() {
                     </SlotHead>
                     <ul className="list">
                         {
-                            Array(10).fill(0).map((item,index)=>{
-                                return (
-                                <li key={index}>
-                                    <div className="pic" title="播放">
-                                        <img width="100%" height="100%" src="http://p2.music.126.net/SLASkSEu_TZdKfukCtaEtA==/109951165776991634.jpg?param=40x40" alt=""/>
-                                        <i className="icon"></i>
-                                    </div>
-                                    <div className="con">
-                                        <Link to="/program?id=" className="title">《时光唱片店》第十八期：你有手机焦虑症吗？</Link>
-                                        <Link to="/djradio?id=" className="des">时光唱片店</Link>
-                                    </div>
-                                    <Link to="djradio/category?id=" className="cate">音乐推荐</Link>
-                                </li>
-                                );
-                            })
+                            createRecommend()
                         }
                     </ul>
                 </div>
@@ -102,29 +190,7 @@ export default function DjRadio() {
                     {/* 节目排行列表 */}
                     <ul className="list">
                         {
-                            Array(10).fill(0).map((item,index)=>{
-                                return (
-                                    <li key={index}>
-                                        <div className="rank">
-                                            <em className={index === 0 ? "red":""}>{index+1 < 10 ? "0"+ (index+1) : (index+1)}</em>
-                                            {
-                                                index === 1 ? <i className={"new"}></i>:<span className={index === 3 ? "up": "down"}><i></i>0</span>
-                                            }
-                                        </div>
-                                        <div className="pic">
-                                            <img width="100%" height="100%" src="https://p1.music.126.net/7U7ktiXUIcKf3mtyCfrJ4g==/109951165620722077.jpg" alt=""/>
-                                            <i className="icon"></i>
-                                        </div>
-                                        <div className="con">
-                                            <Link to="/program?id=" className="title">晚风</Link>
-                                            <Link to="/djradio?id=" className="des">民当谣说这个世界会好的</Link>
-                                        </div>
-                                        <span className="hot">
-                                            <i style={{width: index === 4 && "80%"}}></i>
-                                        </span>
-                                    </li>
-                                )
-                            })
+                            createRankList()
                         }
                     </ul>
                 </div>
@@ -177,3 +243,5 @@ export default function DjRadio() {
         </div>
     )
 }
+
+export default memo(DjRadio) 

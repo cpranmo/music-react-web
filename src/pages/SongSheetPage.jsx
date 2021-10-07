@@ -1,11 +1,27 @@
-import React from 'react'
-import SongSheetList from '../components/songSheetList/SongSheetList'
+import { Spin } from 'antd'
+import React, { lazy, Suspense } from 'react'
+// 懒加载组件
+const SongSheetList = lazy(()=>import('../components/songSheetList/SongSheetList'))
 
 // 二次路由歌单组件
 export default function SongSheetPage() {
+    const style = {
+        display: "flex",
+        width: "100%",
+        height: "100px",
+        alignItems: "center",
+        marginTop: "30px",
+        justifyContent: "center",
+        background: "rgba(0, 0, 0, 0.05)",
+        borderRadius: "4px"
+    }
     return (
-        <React.Fragment>
+        <Suspense fallback={
+            <div style={ style }>
+                <Spin tip="Loading..."/>
+            </div>
+        }>
             <SongSheetList />
-        </React.Fragment>
+        </Suspense>
     )
 }
